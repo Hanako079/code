@@ -4,4 +4,80 @@ import "fmt"
 
 func main() {
     fmt.Println("Hello, World!")
-} 
+} package main
+
+import (
+    "fmt"
+    "math/rand"
+    "time"
+)
+
+// Struct misoli: odam
+type Person struct {
+    Name string
+    Age  int
+}
+
+// Funksiya: ikki sonni qo‘shadi
+func add(a, b int) int {
+    return a + b
+}
+
+// Funksiya: tasodifiy raqam chiqaradi
+func randomNumber(min, max int) int {
+    rand.Seed(time.Now().UnixNano())
+    return rand.Intn(max-min+1) + min
+}
+
+// Funksiya: odam haqida ma'lumot chiqaradi
+func (p Person) Greet() {
+    fmt.Printf("Salom! Mening ismim %s va men %d yoshdaman.\n", p.Name, p.Age)
+}
+
+func main() {
+    // Oddiy print
+    fmt.Println("Hello, Go world!")
+
+    // Qo‘shish funksiyasi
+    sum := add(10, 25)
+    fmt.Println("10 + 25 =", sum)
+
+    // Tasodifiy raqam
+    num := randomNumber(1, 100)
+    fmt.Println("Tasodifiy raqam:", num)
+
+    // Struct va method ishlatish
+    p := Person{Name: "Ali", Age: 17}
+    p.Greet()
+
+    // Loop misoli
+    fmt.Println("1 dan 5 gacha sonlar:")
+    for i := 1; i <= 5; i++ {
+        fmt.Println(i)
+    }
+
+    // Shart operatori
+    if p.Age >= 18 {
+        fmt.Println("Siz katta yoshdasiz")
+    } else {
+        fmt.Println("Siz hali kichik yoshdasiz")
+    }
+
+    // Array va slice misoli
+    fruits := []string{"Olma", "Banan", "Apelsin"}
+    fmt.Println("Mening sevimli mevalarim:")
+    for _, fruit := range fruits {
+        fmt.Println("-", fruit)
+    }
+
+    // Map misoli
+    scores := map[string]int{
+        "Math":    95,
+        "English": 88,
+        "Science": 91,
+    }
+    fmt.Println("Fan ballari:")
+    for subject, score := range scores {
+        fmt.Printf("%s: %d\n", subject, score)
+    }
+}

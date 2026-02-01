@@ -27,4 +27,4 @@ func main() {
 
 	close(c)
 	wg.Wait()
-}
+}open 
